@@ -17,7 +17,7 @@ export const UserService = {
 	async loginUser(data: LoginData): Promise<AxiosResponse<TokenResponse>> {
 		try {
 			return axios.post<TokenResponse>(
-				`http://localhost:4200/api/users/login`,
+				`https://testovoeserver-production.up.railway.app/api/users/login`,
 				data
 			)
 		} catch (err) {
@@ -28,7 +28,10 @@ export const UserService = {
 
 	async regUser(data: RegistrationData): Promise<AxiosResponse<TokenResponse>> {
 		try {
-			return axios.post<TokenResponse>(`http://localhost:4200/api/users`, data)
+			return axios.post<TokenResponse>(
+				`https://testovoeserver-production.up.railway.app/api/users`,
+				data
+			)
 		} catch (err) {
 			console.log(err)
 			throw err
@@ -43,7 +46,7 @@ export const UserService = {
 				},
 			}
 			const response = await axios.get(
-				`http://localhost:4200/api/users/profile`,
+				`https://testovoeserver-production.up.railway.app/api/users/profile`,
 				config
 			)
 			return response.data // Возвращает данные из ответа сервера

@@ -69,7 +69,7 @@ const CreatePost: FC = () => {
 		}
 		createPost({
 			message: isMessage,
-			media: `http://localhost:4200/api${media}`,
+			media: `https://testovoeserver-production.up.railway.app/api${media}`,
 		})
 	}
 
@@ -101,7 +101,10 @@ const CreatePost: FC = () => {
 							text='Удалить файл'
 						/>{' '}
 						<div>
-							<img src={`http://localhost:4200/api${media}`} alt='Uploaded' />
+							<img
+								src={`https://testovoeserver-production.up.railway.app/api${media}`}
+								alt='Uploaded'
+							/>
 						</div>
 					</>
 				)}

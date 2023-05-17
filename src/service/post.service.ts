@@ -9,7 +9,11 @@ export const PostService = {
 					Authorization: `Bearer ${token}`,
 				},
 			}
-			return axios.post(`http://localhost:4200/api/posts/posts`, data, config)
+			return axios.post(
+				`https://testovoeserver-production.up.railway.app/api/posts/posts`,
+				data,
+				config
+			)
 		} catch (err) {
 			console.log(err)
 			throw err
@@ -23,7 +27,11 @@ export const PostService = {
 					Authorization: `Bearer ${token}`,
 				},
 			}
-			return axios.post(`http://localhost:4200/api/uploads`, data, config)
+			return axios.post(
+				`https://testovoeserver-production.up.railway.app/api/uploads`,
+				data,
+				config
+			)
 		} catch (err) {
 			console.log(err)
 			throw err
@@ -40,7 +48,10 @@ export const PostService = {
 					_id: data,
 				},
 			}
-			return axios.delete(`http://localhost:4200/api/posts/posts`, config)
+			return axios.delete(
+				`https://testovoeserver-production.up.railway.app/api/posts/posts`,
+				config
+			)
 		} catch (err) {
 			console.log(err)
 			throw err
@@ -49,7 +60,7 @@ export const PostService = {
 	async getAllPosts(page: number, pageSize: number) {
 		try {
 			const response = await axios.get(
-				`http://localhost:4200/api/posts/posts?page=${page}&pageSize=${pageSize}`
+				`https://testovoeserver-production.up.railway.app/api/posts/posts?page=${page}&pageSize=${pageSize}`
 			)
 			return response.data
 		} catch (err) {
