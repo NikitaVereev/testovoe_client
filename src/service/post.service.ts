@@ -15,6 +15,20 @@ export const PostService = {
 			throw err
 		}
 	},
+	async uploadFile(data: { media: string }) {
+		try {
+			const token = localStorage.getItem('token')
+			const config = {
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			}
+			return axios.post(`http://localhost:4200/api/uploads`, data, config)
+		} catch (err) {
+			console.log(err)
+			throw err
+		}
+	},
 	async deletePost(data: { _id: string }) {
 		try {
 			const token = localStorage.getItem('token')
