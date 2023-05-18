@@ -101,7 +101,7 @@ const CreatePost: FC = () => {
 							{media &&
 								(media.endsWith('.mp4') ? (
 									<video
-										src={`https://testovoeserver-production.up.railway.app/api${media}`}
+										src={`https://testovoeserver-production.up.railway.app/api/uploads/${media}`}
 										controls
 									/>
 								) : (
