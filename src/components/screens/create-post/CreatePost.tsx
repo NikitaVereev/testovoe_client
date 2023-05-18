@@ -66,7 +66,7 @@ const CreatePost: FC = () => {
 		createPost({
 			message: isMessage,
 
-			media: `https://testovoeserver-production.up.railway.app/api/uploads/${media}`,
+			media: `https://testovoeserver-production.up.railway.app/api${media}`,
 		})
 		console.log(media, 'dfdf')
 	}
