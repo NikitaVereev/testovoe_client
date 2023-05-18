@@ -68,6 +68,7 @@ const CreatePost: FC = () => {
 
 			media: `https://testovoeserver-production.up.railway.app/api${media}`,
 		})
+		console.log(media, 'dfdf')
 	}
 
 	const handleButtonClick = () => {
