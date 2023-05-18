@@ -107,10 +107,7 @@ const CreatePost: FC = () => {
 							text='Удалить файл'
 						/>{' '}
 						<div>
-							<img
-								src={`https://testovoeserver-production.up.railway.app${media}`}
-								alt='Uploaded'
-							/>
+							<img src={`${media}`} alt='Uploaded' />
 						</div>
 					</>
 				)}
