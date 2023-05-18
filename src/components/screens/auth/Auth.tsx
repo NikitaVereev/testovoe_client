@@ -5,6 +5,7 @@ import { useAuth } from '../../../hooks/useAuth'
 import { UserService } from '../../../service/user.service'
 import Button from '../../ui/button/Button'
 import Search from '../../ui/search/Search'
+import cn from 'classnames'
 
 import styles from './Auth.module.scss'
 
@@ -53,7 +54,7 @@ const Auth: FC = () => {
 	}
 
 	return (
-		<div className={styles.wrapper}>
+		<div className={cn('wrapper', styles.wrapper)}>
 			<form onSubmit={handleSubmit}>
 				<Search
 					placeholder='Имя'
@@ -77,12 +78,12 @@ const Auth: FC = () => {
 
 				<div className={styles.buttonWrapper}>
 					<Button
-						text='Sign in'
+						text='Войти'
 						style='purple'
 						callback={() => setIsType('auth')}
 					/>
 					<Button
-						text='Sign up'
+						text='Зарегистрироваться'
 						style='purple'
 						callback={() => setIsType('reg')}
 					/>

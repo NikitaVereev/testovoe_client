@@ -1,15 +1,16 @@
 .wrapper {
-	@apply p-8 relative bg-gray-800 border-solid border-gray-500 w-1/4 h-full;
+	@apply p-8 relative bg-gray-800 rounded-3xl border-solid border-gray-500 w-[48%] h-full;
 	.button {
+		@apply absolute right-2 top-2 flex gap-2;
 		button {
-			@apply absolute right-2 top-2;
+			@apply relative;
 		}
 	}
 	.content {
 		@apply relative h-80;
 		img,
 		video {
-			@apply object-contain h-full;
+			@apply object-contain my-6 h-[80%];
 		}
 	}
 }

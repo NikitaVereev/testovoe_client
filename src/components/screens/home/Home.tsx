@@ -28,6 +28,7 @@ const Home: FC = () => {
 				<div>Загрузка...</div>
 			) : (
 				<div className='wrapper'>
+					<h1 className='title'>Публикации</h1>
 					<div className={styles.wrapper}>
 						{data.posts.map((item: any, index: number) => (
 							<PostItem

@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import Header from './header/Header'
 import Footer from './footer/Footer'
+import styles from './Layout.module.scss'
 
 type IChildren = {
 	children: React.ReactNode
@@ -8,7 +9,7 @@ type IChildren = {
 
 const Layout: FC<IChildren> = ({ children }) => {
 	return (
-		<div>
+		<div className={styles.main}>
 			<Header />
 			{children}
 			<Footer />

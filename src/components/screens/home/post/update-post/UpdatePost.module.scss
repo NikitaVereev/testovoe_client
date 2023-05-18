@@ -1,0 +1,15 @@
+.overlay {
+	@apply absolute inset-0 w-full h-full bg-[rgba(0,0,0,.6)] z-10 flex justify-center items-center;
+	.wrapper {
+		@apply w-1/2 bg-black h-[70vh] p-5;
+		.close {
+			@apply relative w-full flex justify-end mb-5;
+		}
+		form {
+			@apply flex flex-col gap-6 w-full;
+			> div {
+				@apply bg-gray-900 p-3;
+			}
+		}
+	}
+}

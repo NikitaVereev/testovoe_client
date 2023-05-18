@@ -1,14 +1,18 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import styles from './PostItem.module.scss'
 import { PostService } from '../../../../service/post.service'
 import { useMutation, useQueryClient, useQuery } from '@tanstack/react-query'
 import Button from '../../../ui/button/Button'
 import { UserService } from '../../../../service/user.service'
 import { useAuth } from '../../../../hooks/useAuth'
+import UpdatePost from './update-post/UpdatePost'
+import { IoMdClose } from 'react-icons/io'
+import { AiFillEdit } from 'react-icons/ai'
 
 const PostItem: FC = ({ posts }: any) => {
 	const queryClient = useQueryClient()
 	const { isAuth } = useAuth()
+	const [open, setOpen] = useState(false)
 
 	const { data, isLoading } = useQuery(['only user'], () => {
 		if (isAuth) {
@@ -51,23 +55,45 @@ const PostItem: FC = ({ posts }: any) => {
 							// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 							//@ts-ignore
 							data?.email === posts.user.email ? (
-								<Button callback={handleClick} text='X' style='close' />
+								<>
+									<Button
+										text={<AiFillEdit />}
+										style='change'
+										callback={() => setOpen(true)}
+									/>
+									<Button
+										callback={handleClick}
+										text={<IoMdClose />}
+										style='close'
+									/>
+								</>
 							) : null
 						}
 					</div>
 				)}
-				<h2 className={styles.user}>{posts.user.name}</h2>
+
 				<div className={styles.content}>
 					<h1>{posts.message}</h1>
-					{posts.media &&
-						(posts.media.endsWith('.mp4') ? (
+					{posts.media !==
+					'https://testovoeserver-production.up.railway.app/api/uploads/' ? (
+						posts.media.endsWith('.mp4') ? (
 							<video src={`${posts.media}`} controls />
 						) : (
 							<img src={`${posts.media}`} alt={posts.media} />
-						))}
+						)
+					) : null}
 				</div>
 				<p className={styles.date}>{formattedTime}</p>
+				<h3 className={styles.user}>{posts.user.name}</h3>
 			</div>
+			{open && (
+				<UpdatePost
+					message={posts.message}
+					_id={posts._id}
+					media={posts?.media}
+					close={() => setOpen(false)}
+				/>
+			)}
 		</>
 	)
 }

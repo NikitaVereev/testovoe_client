@@ -18,6 +18,7 @@ export const UserService = {
 		try {
 			return axios.post<TokenResponse>(
 				`https://testovoeserver-production.up.railway.app/api/users/login`,
+
 				data
 			)
 		} catch (err) {
@@ -30,6 +31,7 @@ export const UserService = {
 		try {
 			return axios.post<TokenResponse>(
 				`https://testovoeserver-production.up.railway.app/api/users`,
+
 				data
 			)
 		} catch (err) {
@@ -47,12 +49,13 @@ export const UserService = {
 			}
 			const response = await axios.get(
 				`https://testovoeserver-production.up.railway.app/api/users/profile`,
+
 				config
 			)
-			return response.data // Возвращает данные из ответа сервера
+			return response.data
 		} catch (err) {
 			console.log(err)
-			throw err // Выбрасывает ошибку, чтобы обработать ее выше
+			throw err
 		}
 	},
 }

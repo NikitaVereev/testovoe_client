@@ -5,6 +5,8 @@ import { useMutation } from '@tanstack/react-query'
 import { PostService } from '../../../service/post.service'
 import Button from '../../ui/button/Button'
 import Search from '../../ui/search/Search'
+import cn from 'classnames'
+import styles from './CreatePost.module.scss'
 
 const CreatePost: FC = () => {
 	const [isMessage, setIsMessage] = useState('')
@@ -67,6 +69,7 @@ const CreatePost: FC = () => {
 		if (media) {
 			formData.append('media', media)
 		}
+
 		createPost({
 			message: isMessage,
 			media: `https://testovoeserver-production.up.railway.app/api/uploads/${media}`,
@@ -80,8 +83,8 @@ const CreatePost: FC = () => {
 	}
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit} encType='multipart/form-data'>
+		<div className={cn(styles.wrapper, 'wrapper')}>
+			<form onSubmit={e => e.preventDefault()} encType='multipart/form-data'>
 				<Button
 					text='Загрузить медиафайл'
 					style='purple'
@@ -116,7 +119,7 @@ const CreatePost: FC = () => {
 					required
 				/>
 
-				<Button text='Добавить' style='purple' />
+				<Button callback={handleSubmit} text='Добавить' style='purple' />
 			</form>
 		</div>
 	)

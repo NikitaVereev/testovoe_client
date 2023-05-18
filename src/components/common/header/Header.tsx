@@ -29,19 +29,14 @@ const Header: FC = ({ backCallback }: any) => {
 
 	return (
 		<header className={styles.header}>
-			{location.pathname !== '/' ? (
-				<button onClick={backCallback}>Назад</button>
-			) : (
-				<button
-					type='button'
-					onClick={() => authPage(isAuth ? '/profile' : '/auth')}
-				>
-					{isAuth ? 'Профиль' : 'Войти'}
-				</button>
-			)}
 			<div ref={ref}>
 				{!isComponentVisible && (
-					<ul className={styles.popup}>
+					<ul className={styles.nav}>
+						<li>
+							{location.pathname !== '/' && (
+								<button onClick={backCallback}>Назад</button>
+							)}
+						</li>
 						{hamburgerArr.map((obj, index) => (
 							<li key={index}>
 								<Link
@@ -54,8 +49,18 @@ const Header: FC = ({ backCallback }: any) => {
 							</li>
 						))}
 						<li>
-							<button onClick={handleLogout}>Logout</button>
+							<button
+								type='button'
+								onClick={() => authPage(isAuth ? '/profile' : '/auth')}
+							>
+								{isAuth ? null : 'Войти'}
+							</button>
 						</li>
+						{isAuth && (
+							<li>
+								<button onClick={handleLogout}>Выйти</button>
+							</li>
+						)}
 					</ul>
 				)}
 			</div>

@@ -7,9 +7,13 @@
 * {
 	@apply m-0 p-0 box-border;
 }
+html,
 body {
 	font-family: 'Roboto';
-	@apply font-normal bg-black text-gray-300;
+	@apply font-normal bg-gray-900 text-gray-300 h-full;
+	#root {
+		@apply h-full;
+	}
 }
 h1,
 h2,
@@ -20,9 +24,20 @@ h6,
 p {
 	@apply m-0 p-0;
 }
+h1 {
+	@apply text-2xl leading-[115%] font-bold;
+}
+
+form {
+	@apply flex flex-col w-1/2 gap-6;
+}
 
 .wrapper {
-	@apply max-w-7xl mx-auto;
+	@apply max-w-7xl mx-auto flex-2;
+}
+
+.title {
+	@apply text-[6vw] font-bold relative -left-6;
 }
 
 .pagination {

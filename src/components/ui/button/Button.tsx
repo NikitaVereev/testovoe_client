@@ -3,8 +3,8 @@ import styles from './Button.module.scss'
 
 interface IButtonProps {
 	callback?: MouseEventHandler<HTMLButtonElement>
-	text: string
-	style: string
+	text?: string | React.ReactNode
+	style?: string
 }
 
 const Button: FC<IButtonProps> = ({ callback, text, style }) => {
@@ -12,7 +12,7 @@ const Button: FC<IButtonProps> = ({ callback, text, style }) => {
 		<button
 			type='submit'
 			onClick={callback}
-			className={`${styles.button} ${styles[style]}`}
+			className={`${styles.button} ${styles[style || '']}`}
 		>
 			{text}
 		</button>
