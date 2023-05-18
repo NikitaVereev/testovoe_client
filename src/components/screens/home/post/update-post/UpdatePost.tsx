@@ -110,9 +110,9 @@ const UpdatePost: FC<IData> = ({ message, _id, close, media }) => {
 
 						{media &&
 							(media.endsWith('.mp4') ? (
-								<video src={`${media}`} controls />
+								<video src={`/uploads/${media}`} controls />
 							) : (
-								<img src={`${media}`} alt={media} />
+								<img src={`/uploads/${media}`} alt={media} />
 							))}
 					</div>
 					<Button callback={handleSubmit} text='Изменить' />
