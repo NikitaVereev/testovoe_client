@@ -66,7 +66,7 @@ const CreatePost: FC = () => {
 		createPost({
 			message: isMessage,
 
-			media: `https://testovoeserver-production.up.railway.app/api/uploads/${media}`,
+			media: `https://testovoeserver-production.up.railway.app/api${media}`,
 		})
 	}
 
@@ -106,7 +106,7 @@ const CreatePost: FC = () => {
 									/>
 								) : (
 									<img
-										src={`https://testovoeserver-production.up.railway.app/api/uploads/${media}`}
+										src={`https://testovoeserver-production.up.railway.app/api${media}`}
 										alt={media}
 									/>
 								))}
