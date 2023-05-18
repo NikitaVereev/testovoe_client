@@ -105,7 +105,7 @@ const CreatePost: FC = () => {
 						/>{' '}
 						<div>
 							<img
-								src={`https://testovoeserver-production.up.railway.app/api/uploads${media}`}
+								src={`https://testovoeserver-production.up.railway.app/api/uploads/${media}`}
 								alt='Uploaded'
 							/>
 						</div>
