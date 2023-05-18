@@ -77,7 +77,7 @@ const PostItem: FC = ({ posts }: any) => {
 					{posts.media !==
 					'https://testovoeserver-production.up.railway.app/api/uploads/' ? (
 						posts.media.endsWith('.mp4') ? (
-							<video src={`${posts.media}`} controls />
+							<video src={`/uploads/${posts.media}`} controls />
 						) : (
 							<img src={`${posts.media}`} alt={posts.media} />
 						)
