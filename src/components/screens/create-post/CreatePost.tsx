@@ -63,19 +63,10 @@ const CreatePost: FC = () => {
 
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault()
-		const formData = new FormData()
-		console.log(formData)
-		formData.append('message', isMessage)
-		if (media) {
-			formData.append('media', media)
-		}
-
 		createPost({
 			message: isMessage,
-			media: media
-				? `https://testovoeserver-production.up.railway.app/api${media}`
-				: '',
-			// `http://localhost:4200/api/uploads/${media}`,
+
+			media: `https://testovoeserver-production.up.railway.app/api${media}`,
 		})
 	}
 
@@ -107,7 +98,12 @@ const CreatePost: FC = () => {
 							text='Удалить файл'
 						/>{' '}
 						<div>
-							<img src={`${media}`} alt='Uploaded' />
+							{media &&
+								(media.endsWith('.mp4') ? (
+									<video src={`${media}`} controls />
+								) : (
+									<img src={`${media}`} alt={media} />
+								))}
 						</div>
 					</>
 				)}
