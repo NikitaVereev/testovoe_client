@@ -67,7 +67,7 @@ const UpdatePost: FC<IData> = ({ message, _id, close, media }) => {
 		updatePost({
 			message: isMessage,
 			_id: _id,
-			media: `https://testovoeserver-production.up.railway.app/api/uploads${isMedia}`,
+			media: `https://testovoeserver-production.up.railway.app/api/uploads/${isMedia}`,
 		})
 	}
 
